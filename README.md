@@ -16,4 +16,4 @@ python start_ocr.py --model MODEL --key YOUR_API_KEY --img_path /path/to/images/
 
 ## License
 
-ShampooSalesAgent is licensed under the MIT License found in the [LICENSE](LICENSE) file in the root directory of this repository.
+LLM-Data-Cleaner is licensed under the MIT License found in the [LICENSE](LICENSE) file in the root directory of this repository.
