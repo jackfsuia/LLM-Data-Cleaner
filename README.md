@@ -4,9 +4,9 @@ English | [简体中文](README_zh.md)
 
 Use LLM to generate or clean data for academic use. For now it supports OCR, using various models like qwen(通义千问), moonshot(月之暗面), PaddleOCR(百度飞桨OCR), openai.
 ## Start
-Clone the repo
+Clone and enter the repo
 ```bash
-git clone https://github.com/jackfsuia/LLM-Data-Cleaner.git
+git clone https://github.com/jackfsuia/LLM-Data-Cleaner.git && cd LLM-Data-Cleaner
 ```
 then to start OCR, run 
 ```bash
