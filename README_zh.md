@@ -4,9 +4,9 @@
 
 用大模型来批量预处理数据，以支持科研目的。 现阶段支持OCR功能, 支持使用的大模型有 qwen(通义千问), moonshot(月之暗面), PaddleOCR(百度飞桨OCR), openai。
 ## Start
-克隆仓库到本地
+克隆并且进入仓库
 ```bash
-git clone https://github.com/jackfsuia/LLM-Data-Cleaner.git
+git clone https://github.com/jackfsuia/LLM-Data-Cleaner.git && cd LLM-Data-Cleaner
 ```
 进入仓库然后跑下面命令启动OCR
 ```bash
