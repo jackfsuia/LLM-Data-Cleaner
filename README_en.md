@@ -1,6 +1,6 @@
 # LLM-Data-Cleaner
 
-English | [简体中文](README_zh.md)
+English | [简体中文](README.md)
 
 Use LLM to generate or clean data for academic use. For now it supports OCR, using various models like qwen(通义千问), moonshot(月之暗面), PaddleOCR(百度飞桨OCR), openai.
 ## Start
