@@ -1,6 +1,9 @@
-# LLM-Data-Cleaner
+<p align="left">
+    <img src="logo/logo.png" width="26%" >
+</p>
 
-简体中文 | [English](README_en.md) 
+# LLM-Data-Cleaner
+简体中文 | [English](README_en.md)
 ## 背景
 未来人类会用大模型预加工所有数据。现阶段本项目旨在结合大模型来批量预处理数据，以支持科研目的。 现阶段支持OCR功能, 支持使用的大模型有 qwen(通义千问), moonshot(月之暗面), PaddleOCR(百度飞桨OCR), openai。
 ## 启动
