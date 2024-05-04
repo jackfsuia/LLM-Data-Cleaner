@@ -7,7 +7,7 @@ from ocr import base_ocr
 class openai_ocr(base_ocr):
     def __init__(self, MODEL, KEY):
         super().__init__()
-        if MODEL == 'oenai':
+        if MODEL == 'openai':
             MODEL='gpt-4-turbo'
         self.MODEL=MODEL
         self.api_key = KEY
