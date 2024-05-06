@@ -53,8 +53,12 @@ if __name__ == '__main__':
     elif model == 'openai' or model.startswith("gpt"):
         from models import openai_ocr
         ocr_img = openai_ocr.openai_ocr(model, key).closuer_ocr_image()
+    elif "llava" in model.lower():
+        from models import llava_ocr
+        ocr_img = llava_ocr.llava_ocr(model).closuer_ocr_image()
     else:
         raise Exception("This model has not been supported.")
+    
     OCR_the_dataset(ocr_img, img_path, outdir)
 
 
