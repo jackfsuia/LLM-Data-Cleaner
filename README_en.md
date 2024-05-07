@@ -5,7 +5,7 @@
 # LLM-Data-Cleaner
 English | [简体中文](README.md)
 ## Background
-In future human will use LLM to preprocess all data. This project assembles LLMs and old tools to generate or clean data for academic use. For now it supports OCR, using various models like PaddleOCR, OpenAI, qwen, moonshot.
+In future human will use LLM to preprocess all data. This project assembles LLMs and old tools to generate or clean data for academic use. For now it supports OCR, using various models like PaddleOCR, OpenAI, Llava, qwen, moonshot.
 ## Start
 Clone and enter the repo
 ```bash
