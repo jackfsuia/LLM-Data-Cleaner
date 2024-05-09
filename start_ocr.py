@@ -9,7 +9,7 @@ def OCR_the_dataset(ocr_img, folder_path, outdir):
     if folder_path == None:
         folder_path=current_dir_path
     file_name = os.path.join(outdir, "data.jsonl")
-    with open(file_name, 'a', encoding='utf-8') as jsonl_file:##
+    with open(file_name, 'w', encoding='utf-8') as jsonl_file:##
         for filename in os.listdir(folder_path):
             if filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".tif") or filename.endswith(".jpeg"):
                 img_path = os.path.join(folder_path, filename)
