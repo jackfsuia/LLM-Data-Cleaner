@@ -5,8 +5,8 @@
 # LLM-Data-Cleaner
 English | [简体中文](README.md)
 ## Updates
-- Looks like people have been training LLMs to do those clean job, see [refuel-llm-2](https://www.refuel.ai/blog-posts/announcing-refuel-llm-2).
-- As for OCR，you can use [Nougat](https://github.com/facebookresearch/nougat, it works very well.
+- Looks like people have been training LLMs to do those clean jobs, see [refuel-llm-2](https://www.refuel.ai/blog-posts/announcing-refuel-llm-2).
+- As for OCR，you can use [Nougat](https://github.com/facebookresearch/nougat), it works very well.
 ## Background
 In future human will use LLM to preprocess all data. This project assembles LLMs and old tools to generate or clean data for academic use. For now it supports OCR, using various models like PaddleOCR, OpenAI, Llava, qwen, moonshot.
 ## Start
