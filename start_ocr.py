@@ -17,9 +17,9 @@ def OCR_the_dataset(ocr_img, folder_path, outdir, batchsize = None):
                 item["name"]=filename
                 ocr_result=ocr_img(img_path)
                 if ocr_result:
-                    print('-->success')
+                    print('-->one ocr success')
                     return ocr_result
-        print('-->none') 
+        print('-->not a image') 
         return ""
     
     files=os.listdir(folder_path)
