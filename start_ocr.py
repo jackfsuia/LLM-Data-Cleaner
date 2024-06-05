@@ -1,26 +1,44 @@
 import argparse
 import json
 import os
+from concurrent.futures import ThreadPoolExecutor
 
-def OCR_the_dataset(ocr_img, folder_path, outdir):
+def OCR_the_dataset(ocr_img, folder_path, outdir, num_proc = None):
     current_dir_path = os.path.dirname(os.path.abspath(__file__))
-    if outdir == None:
+    if outdir is None:
         outdir=current_dir_path
-    if folder_path == None:
+    if folder_path is None:
         folder_path=current_dir_path
-    file_name = os.path.join(outdir, "data.jsonl")
-    with open(file_name, 'w', encoding='utf-8') as jsonl_file:##
-        for filename in os.listdir(folder_path):
-            if filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".tif") or filename.endswith(".jpeg"):
+
+    def ocrf(filename):
+        if filename.endswith(".jpg") or filename.endswith(".png") or filename.endswith(".tif") or filename.endswith(".jpeg"):
                 img_path = os.path.join(folder_path, filename)
                 item={}
                 item["name"]=filename
                 ocr_result=ocr_img(img_path)
                 if ocr_result:
-                    item["ocr_result"]= ocr_result
-                    jsonl_file.write(json.dumps(item) + '\n')
+                    print('-->success')
+                    return ocr_result
+        print('-->none') 
+        return ""
+    
+    files=os.listdir(folder_path)
 
-    print(f"data has been written to {file_name}")    
+    if num_proc is None:
+        num_proc = len(files)
+    with ThreadPoolExecutor(max_workers=num_proc) as executor:
+         
+        ocr_results = list(executor.map(ocrf, files)) 
+
+    save_file_name = os.path.join(outdir, "data.jsonl")
+    with open(save_file_name, 'w', encoding='utf-8') as jsonl_file:##
+        for i, ocr_result in enumerate(ocr_results):
+            item={}
+            item["name"]=files[i]
+            item["ocr_result"]= ocr_result
+            jsonl_file.write(json.dumps(item) + '\n')
+
+    print(f"data has been written to {save_file_name}")    
 
 
 if __name__ == '__main__':
@@ -32,7 +50,7 @@ if __name__ == '__main__':
     parser.add_argument('--img_path', type=str, help="images folder path")
     parser.add_argument('--outdir', type=str, help="output dir")
     parser.add_argument('--lang', default='en',type=str, help="language:`ch`, `en`, `fr`, `german`, `korean`, `japan`")
-    
+    parser.add_argument('--num_thread', default=None,type=int, help="number of threads")
     args = parser.parse_args()
     
 
@@ -59,7 +77,7 @@ if __name__ == '__main__':
     else:
         raise Exception("This model has not been supported.")
     
-    OCR_the_dataset(ocr_img, img_path, outdir)
+    OCR_the_dataset(ocr_img, img_path, outdir, args.num_thread)
 
 
 
