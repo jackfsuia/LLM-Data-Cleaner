@@ -3,7 +3,7 @@ import json
 import os
 from concurrent.futures import ThreadPoolExecutor
 
-def OCR_the_dataset(ocr_img, folder_path, outdir, num_proc = None):
+def OCR_the_dataset(ocr_img, folder_path, outdir, batchsize = None):
     current_dir_path = os.path.dirname(os.path.abspath(__file__))
     if outdir is None:
         outdir=current_dir_path
@@ -24,9 +24,9 @@ def OCR_the_dataset(ocr_img, folder_path, outdir, num_proc = None):
     
     files=os.listdir(folder_path)
 
-    if num_proc is None:
-        num_proc = len(files)
-    with ThreadPoolExecutor(max_workers=num_proc) as executor:
+    if batchsize is None:
+        batchsize = len(files)
+    with ThreadPoolExecutor(max_workers=batchsize) as executor:
          
         ocr_results = list(executor.map(ocrf, files)) 
 
@@ -50,7 +50,7 @@ if __name__ == '__main__':
     parser.add_argument('--img_path', type=str, help="images folder path")
     parser.add_argument('--outdir', type=str, help="output dir")
     parser.add_argument('--lang', default='en',type=str, help="language:`ch`, `en`, `fr`, `german`, `korean`, `japan`")
-    parser.add_argument('--num_thread', default=None,type=int, help="number of threads")
+    parser.add_argument('--batchsize', default=None,type=int, help="batchsize")
     args = parser.parse_args()
     
 
@@ -77,7 +77,7 @@ if __name__ == '__main__':
     else:
         raise Exception("This model has not been supported.")
     
-    OCR_the_dataset(ocr_img, img_path, outdir, args.num_thread)
+    OCR_the_dataset(ocr_img, img_path, outdir, args.batchsize)
 
 
 
