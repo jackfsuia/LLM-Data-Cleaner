@@ -7,7 +7,7 @@
 
 ## 更新
 - 看来有人专门训练LLM来干这些活了。见[refuel-llm-2](https://www.refuel.ai/blog-posts/announcing-refuel-llm-2)。
-- 关于OCR，可以用[Nougat](https://github.com/facebookresearch/nougat)h和[Marker](https://github.com/VikParuchuri/marker)。
+- 关于OCR，可以结合使用[Nougat](https://github.com/facebookresearch/nougat)、[Marker](https://github.com/VikParuchuri/marker)、或多模态大模型[MiniCPM-V](https://github.com/OpenBMB/MiniCPM-V)。
 ## 背景
 未来人类会用大模型预加工所有数据。本项目旨在结合大模型来批量预处理数据，以支持科研目的。 现阶段支持OCR功能, 支持使用的大模型有 qwen(通义千问), moonshot(月之暗面), PaddleOCR(百度飞桨OCR), openai, Llava。
 ## 启动
